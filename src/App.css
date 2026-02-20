@@ -1,0 +1,16 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.preview-images{
+  max-width: 280px;
+  height: auto;
+}
+.preview-img{
+  display: flex;
+  gap: 20px;
+  place-items: center;
+  flex-wrap: wrap;
+}

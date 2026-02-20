@@ -1,0 +1,11 @@
+.file-upload-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed green;
+    width: 800px;
+    height: 400px;
+    border-radius: 8px;
+    cursor: pointer;
+}
