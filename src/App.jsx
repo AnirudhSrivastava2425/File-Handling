@@ -11,7 +11,8 @@ function App() {
   const filesUpload = (files) => {
     let filesArr = files.map((elem) => ({
       elem,
-      preview: URL.createObjectURL(elem)
+      preview: URL.createObjectURL(elem),
+      type: elem.type,
     }))
 
     setFile((prev) => [...prev, ...filesArr])
@@ -20,6 +21,7 @@ function App() {
   const handleFileDelete = (index) => {
     let updatedFiles = file.filter((_, i) => i !== index)
     setFile(updatedFiles)
+    console.log(file)
   }
   return (
     <>
@@ -36,8 +38,15 @@ function App() {
       <br />
       <div className="preview-img">
         {file[0] ? file.map((elem, index) => (
-          <div className="preview-wrapper">
-            <img key={elem.name} className='preview-images' onClick={() => handleFileDelete(index)} src={elem.preview} alt={elem.name} />
+          <div className="preview-wrapper" onClick={() => handleFileDelete(index)}>
+            {elem.type.startsWith("image/") ? (<img key={elem.name} className='preview-images' src={elem.preview} alt={elem.name} />)
+              : elem.type === "application/pdf" ?
+                (<iframe
+                  src={elem.preview}
+                  title="pdf-preview"
+                  className="preview-pdf"
+                />) : "Not Supported"}
+            {/* <img key={elem.name} className='preview-images' onClick={() => handleFileDelete(index)} src={elem.preview} alt={elem.name} /> */}
           </div>
         )) : "No files added."}</div>
     </>

@@ -35,3 +35,6 @@
 .preview-wrapper:hover::before{
   opacity: 1;
 }
+.preview-pdf{
+  pointer-events: none;
+}
