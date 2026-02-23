@@ -7,10 +7,31 @@
 .preview-images{
   max-width: 280px;
   height: auto;
+  transition: 0.3s;
 }
 .preview-img{
   display: flex;
   gap: 20px;
   place-items: center;
   flex-wrap: wrap;
+}
+.preview-images:hover{
+  cursor: pointer;
+  opacity: 0.1;
+}
+.preview-wrapper{
+  height: fit-content;
+  width: fit-content;
+  position: relative;
+}
+.preview-wrapper::before{
+  content: "Click to delete image.";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: red;
+  opacity: 0;
+}
+.preview-wrapper:hover::before{
+  opacity: 1;
 }
